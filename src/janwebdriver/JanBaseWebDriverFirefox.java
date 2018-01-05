@@ -44,16 +44,16 @@ public class JanBaseWebDriverFirefox {
 	    profile.setPreference("network.proxy.ssl_port", 8080);
 	    profile.setPreference("network.proxy.no_proxies_on", "");
 
-  //      profile.setPreference("webdriver.log.browser.file", "/dev/null");
+	    //profile.setPreference("webdriver.log.browser.file", "/dev/null");
 
         
 	    FirefoxOptions options = new FirefoxOptions();
 		options.setProfile(profile);
 		//options.setHeadless(true);		
 	
-//		options.setLogLevel(FirefoxDriverLogLevel.WARN);
+		//options.setLogLevel(FirefoxDriverLogLevel.WARN);
 	    //options.addPreference("log", "{level: info}");
-	    //    desiredCapabilities.setCapability("moz:firefoxOptions", options);
+	    //desiredCapabilities.setCapability("moz:firefoxOptions", options);
 
 		webDriver = new FirefoxDriver(options);	
 		wait = new WebDriverWait(webDriver, WAIT_TIME);
@@ -135,48 +135,3 @@ public class JanBaseWebDriverFirefox {
 	}
 
 }
-
-
-/*
-{"chrome://browser/content/browser.xul":{"navigator-toolbox":{"iconsize":"small"},"main-window":{"sizemode":"maximized","screenX":"0","screenY":"263","width":"800","height":"600"},"sidebar-box":{"sidebarcommand":"","width":""}},"chrome://pippki/content/exceptionDialog.xul":{"exceptiondialog":{"screenX":"502","screenY":"236","width":"675","height":"557"}},"chrome://browser/content/pageinfo/pageInfo.xul":{"main-window":{"screenX":"0","screenY":"24","width":"60","height":"55","sizemode":"normal"}},"chrome://pippki/content/certManager.xul":{"certcol":{"ordinal":"1"},"tokencol":{"ordinal":"3"},"sitecol":{"ordinal":"3"},"lifetimecol":{"ordinal":"5"},"expiredcol":{"ordinal":"7"},"serialnumcol":{"ordinal":"5"},"issuedcol":{"ordinal":"7"},"certmanagertabs":{"selectedIndex":"3"}},"about:config":{"prefCol":{"ordinal":"1","sortDirection":"ascending"},"lockCol":{"ordinal":"3"},"typeCol":{"ordinal":"5"},"valueCol":{"ordinal":"7"}}}
- */
-
-
-//https://seleniumjava.com/2016/04/05/the-beginners-guide-to-explicit-waits/
-
-/*
-  WebDriver driver=new ChromeDriver();
-  WebDriverWait wait = new WebDriverWait(driver,20);
-  driver.get("http://qaautomated.blogspot.in");
-  WebElement aboutMe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("about_me")));      
-aboutMe.click();
-  driver.quit();
-
-presenceOfElementLocated
-  
-// wait for the application to get fully loaded
-WebElement findOwnerLink = (new WebDriverWait(driver, 5)).until(new ExpectedCondition<WebElement>() {
-    public WebElement apply(WebDriver d) {
-        d.get(baseUrl);
-        return d.findElement(By.linkText("Find owner"));
-    }
-});
-findOwnerLink.click();
-
-
-
-WebDriverWait myWaitVar = new WebDriverWait(driver,20);
-
-
-driver.findElement(By.id("createAccount")).click();
-
-//Wait till "Cancel" button is showing up. At cases, it may take some time.
-WebElement el = myWaitVar.until(ExpectedConditions.elementToBeClickable(By.id("cancelRegister")));
-el.click();
-	
-*/
-
-//http://kb.mozillazine.org/About:config_entries
-//http://kb.mozillazine.org/Category:Preferences
-//type -a firefox
-//download the geckodriver -- this driver is included within ZAP but doesn't work
